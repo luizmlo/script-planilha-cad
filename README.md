@@ -26,7 +26,7 @@
    --- | --- | --- | ---
    0 | ARQ_CAD_IFG_ANA_LAURA_MARQUES.dwg | ANA LAURA MARQUES | 0.0
    1 | ARQ_CAD_IFG_ARTHUR_MEDEIROS.dwg | ARTHUR MEDEIROS | 0.0
-   2 | ARQ_CAD_IFG_NOME_ALUNO.dwg | NOME ALUNO | 0.0
+   2 | ARQ_CAD_IFG_LUIZ_FELIPE_BRANCO.dwg | LUIZ FELIPE BRANCO | 10.0
 
    ### **Modo 2 - Modo de Testes, Notas aleatórias**
    ```
