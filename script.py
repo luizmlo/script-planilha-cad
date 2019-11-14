@@ -3,11 +3,11 @@ import csv, os,random
 arquivos = os.listdir('.')
 
 def abrir_planilha():
-    try:
+    if(os.path.isfile('Planilha_Notas.csv')):
         planilha = open('Planilha_Notas.csv', 'w', newline='')
         modo = int(input('Já foi encontrada uma planilha na pasta, os dados serão sobrescrevidos\nDigite o Modo:\n1 - Real, usando os arquivos e notas reais\n2 - Teste, notas aleatórias para demonstração\n>>> '))
 
-    except FileNotFoundError:
+    else:
         modo = int(input('Planilha Não encontrada, criando arquivo\nDigite o Modo:\n1 - Real, usando os arquivos e notas reais\n2 - Teste, notas aleatórias para demonstração\n>>> '))
         planilha = open('Planilha_Notas.csv', 'w+', newline='')
     
@@ -28,13 +28,14 @@ def parsar_nomes():
             for x in nome_parsed:
                 n_nomes += 1
                 if(n_nomes <= 1):
-                    nome += x
+                    nome += x.capitalize()
                 else:
-                    nome += ' ' + x
+                    nome += ' ' + x.capitalize()
 
             nome = nome[:-4]
             print(nome)
             nomes.append(nome)
+            nomes.sort(key=len)
 
     return nomes_arquivos, nomes
 
@@ -42,7 +43,7 @@ def escrever_planilha(handler_planilha, matriz_arquivos, matriz_nomes, modo):
     nomes_arquivos = matriz_arquivos
     nomes = matriz_nomes
     planilha = handler_planilha
-    colunas = ['Nº','Nome do Arquivo', 'Nome do Aluno', 'Nota do Trabalho']
+    colunas = ['ID','Nome do Arquivo', 'Nome do Aluno', 'Nota do Trabalho']
     writer = csv.writer(planilha, delimiter=',')
     writer.writerow(colunas)
 
@@ -60,6 +61,7 @@ def main():
     planilha, modo = abrir_planilha()
     nomes_arquivos, nomes = parsar_nomes()
     escrever_planilha(planilha, nomes_arquivos, nomes, modo)
+    planilha.close()
     #print(nomes_arquivos)
 
 if __name__ == "__main__":
