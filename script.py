@@ -5,7 +5,7 @@ arquivos = os.listdir('.')
 def abrir_planilha():
     if(os.path.isfile('Planilha_Notas.csv')):
         planilha = open('Planilha_Notas.csv', 'w', newline='')
-        modo = int(input('Já foi encontrada uma planilha na pasta, os dados serão sobrescrevidos\nDigite o Modo:\n1 - Real, usando os arquivos e notas reais\n2 - Teste, notas aleatórias para demonstração\n>>> '))
+        modo = int(input('Já foi encontrada uma planilha na pasta, os dados serão sobrescritos\nDigite o Modo:\n1 - Real, usando os arquivos e notas reais\n2 - Teste, notas aleatórias para demonstração\n>>> '))
 
     else:
         modo = int(input('Planilha Não encontrada, criando arquivo\nDigite o Modo:\n1 - Real, usando os arquivos e notas reais\n2 - Teste, notas aleatórias para demonstração\n>>> '))
